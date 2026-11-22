@@ -1,372 +1,715 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080b18">
-    <meta name="description" content="Yash Dnyaneshwar Rakhunde - Data Science, AI/ML and Generative AI Portfolio">
-    <title>Yash Dnyaneshwar Rakhunde | AI & Data Science</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b18">
 
-    <link rel="stylesheet" href="./stylesheet.css">
+  <title>Yash Rakhunde | Data Science & AI Portfolio</title>
 
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-          rel="stylesheet">
+  <meta name="description"
+    content="Explore Yash Rakhunde's portfolio featuring Data Science, Machine Learning, Python and Generative AI projects.">
 
-    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title"
+    content="Yash Rakhunde | Data Science & AI">
+  <meta property="og:description"
+    content="Practical Data Science, Machine Learning and Generative AI projects.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="./stylesheet.css">
+
+  <script
+    defer
+    src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js">
+  </script>
+
+  <script defer src="./main.js"></script>
 </head>
+
 <body>
 
-    <header class="header">
-        <a href="#home" class="logo">YR<span>.</span></a>
+  <a class="skip-link" href="#home">Skip to main content</a>
 
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+  <!-- HEADER -->
+  <header class="header">
 
-    <main>
-        <!-- HERO -->
-        <section class="hero" id="home">
-            <div class="hero-content reveal">
-                <div class="availability">
-                    <span class="status-dot"></span>
-                    Open to Fresher Opportunities
-                </div>
+    <a href="#home" class="logo" aria-label="Home">
+      YR<span>.</span>
+    </a>
 
-                <p class="eyebrow">HELLO, I'M</p>
-                <h1>Yash Dnyaneshwar<br><span>Rakhunde.</span></h1>
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      aria-controls="navbar">
+      <i class="bx bx-menu" aria-hidden="true"></i>
+    </button>
 
-                <h2>Building with <span class="typed-text"></span></h2>
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-                <p class="hero-description">
-                    Computer Engineering graduate interested in Data Science,
-                    Machine Learning and Artificial Intelligence. I enjoy
-                    exploring data, solving problems and developing practical
-                    technology applications.
-                </p>
+  </header>
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary-btn">Explore Projects <i class='bx bx-right-arrow-alt'></i></a>
-                    <a href="mailto:yashrakhunde5@gmail.com" class="btn secondary-btn">Contact Me</a>
-                </div>
+  <main>
 
-                <div class="social-links">
-                    <a href="https://github.com/Yash-0330" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-                    <a href="https://www.linkedin.com/in/yashrakhunde" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                    <a href="https://leetcode.com/YashRakhunde" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class='bx bx-code-alt'></i></a>
-                    <a href="mailto:yashrakhunde5@gmail.com" aria-label="Email"><i class='bx bx-envelope'></i></a>
-                </div>
-            </div>
+    <!-- HERO -->
+    <section class="hero" id="home">
 
-            <div class="hero-visual reveal">
-                <div class="visual-glow"></div>
-                <div id="three-container"></div>
+      <div class="hero-content reveal">
 
-                <div class="floating-label label-one">
-                    <i class='bx bx-brain'></i> Machine Learning
-                </div>
-                <div class="floating-label label-two">
-                    <i class='bx bx-message-rounded-dots'></i> Natural Language Processing
-                </div>
-                <div class="floating-label label-three">
-                    <i class='bx bx-network-chart'></i> Deep Learning
-                </div>
-                <div class="floating-label label-four">
-                    <i class='bx bx-bot'></i> Generative AI
-                </div>
-                <div class="floating-label label-five">
-                    <i class='bx bx-chip'></i> Large Language Models
-                </div>
-                <div class="floating-label label-six">
-                    <i class='bx bxl-python'></i> python
-                </div>
-                <div class="floating-label label-seven">
-                    <i class='bx bx-data'></i> Data Science
-                </div>
-            </div>
+        <div class="availability">
+          <span class="status-dot"></span>
+          Open to Entry-Level Opportunities
+        </div>
 
-            <div class="scroll-indicator">
-                <span></span> Scroll to explore
-            </div>
-        </section>
+        <p class="eyebrow">HELLO, I'M</p>
 
-        <!-- ABOUT -->
-        <section class="section about" id="about">
-            <div class="section-heading reveal">
-                <p class="eyebrow">GET TO KNOW ME</p>
-                <h2>About <span>Me</span></h2>
-            </div>
+        <h1>
+          Yash Dnyaneshwar<br>
+          <span>Rakhunde.</span>
+        </h1>
 
-            <div class="about-grid">
-                 <div class="profile-card reveal">
-        <div class="profile-frame">
+        <h2>
+          Building with <span class="typed-text">Data Science.</span>
+        </h2>
+
+        <p class="hero-description">
+          Computer Engineering graduate passionate about
+          Data Science, Machine Learning and Generative AI.
+          I build practical applications that transform data
+          into meaningful insights and solve real-world problems.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#projects" class="btn primary-btn">
+            Explore Projects
+            <i class="bx bx-right-arrow-alt" aria-hidden="true"></i>
+          </a>
+
+          <a href="#contact" class="btn secondary-btn">
+            Let's Connect
+          </a>
+        </div>
+
+        <div class="social-links">
+
+          <a href="https://github.com/Yash-0330"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="GitHub">
+            <i class="bx bxl-github"></i>
+          </a>
+
+          <a href="https://www.linkedin.com/in/yashrakhunde"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn">
+            <i class="bx bxl-linkedin"></i>
+          </a>
+
+          <a href="mailto:yashrakhunde5@gmail.com"
+             aria-label="Email">
+            <i class="bx bx-envelope"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- 3D ANIMATION -->
+      <div class="hero-visual reveal">
+
+        <div class="visual-glow" aria-hidden="true"></div>
+
+        <div id="three-container" aria-hidden="true"></div>
+
+        <div class="floating-label label-one">
+          <i class="bx bx-brain"></i> Machine Learning
+        </div>
+
+        <div class="floating-label label-two">
+          <i class="bx bx-message-rounded-dots"></i> NLP
+        </div>
+
+        <div class="floating-label label-three">
+          <i class="bx bx-network-chart"></i> Deep Learning
+        </div>
+
+        <div class="floating-label label-four">
+          <i class="bx bx-bot"></i> Generative AI
+        </div>
+
+        <div class="floating-label label-five">
+          <i class="bx bx-chip"></i> LLMs
+        </div>
+
+        <div class="floating-label label-six">
+          <i class="bx bxl-python"></i> Python
+        </div>
+
+        <div class="floating-label label-seven">
+          <i class="bx bx-data"></i> Data Science
+        </div>
+
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">
+        <span></span> Scroll to explore
+      </div>
+
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">GET TO KNOW ME</p>
+        <h2>About <span>Me</span></h2>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="profile-card reveal">
+
+          <div class="profile-frame">
+
             <img
-                src="./images/ChatGPT Image Aug 18, 2026, 12_34_12 PM.png"
-                alt="Yash Dnyaneshwar Rakhunde"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
+              src="./images/ChatGPT Image Aug 18, 2026, 12_34_12 PM.png"
+              alt="Yash Rakhunde"
+              loading="lazy"
+              decoding="async"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='grid';"
             >
 
             <div class="profile-fallback">
-                <i class='bx bx-user'></i>
+              <i class="bx bx-user"></i>
             </div>
+
+          </div>
+
+          <h3>Yash Dnyaneshwar Rakhunde</h3>
+          <p>Computer Engineering Graduate</p>
+
+          <div class="profile-location">
+            <i class="bx bx-map"></i>
+            Pune, Maharashtra, India
+          </div>
+
         </div>
 
-        <h3>Yash Dnyaneshwar Rakhunde</h3>
-        <p>Computer Engineering Graduate</p>
+        <div class="about-text reveal">
 
-        <div class="profile-location">
-            <i class='bx bx-map'></i> Pune, Maharashtra, India
+          <h3>Curious about Data. Excited by AI.</h3>
+
+          <p>
+            I am a Computer Engineering graduate with a
+            foundation in Python, SQL, Statistics,
+            Data Analytics and Machine Learning.
+          </p>
+
+          <p>
+            I have worked on projects involving predictive
+            analytics, fraud detection, data visualization
+            and AI-powered applications.
+          </p>
+
+          <p>
+            I am expanding my knowledge of Large Language
+            Models, prompt engineering, embeddings,
+            Retrieval-Augmented Generation and AI agents.
+          </p>
+
+          <p>
+            My goal is to start my career in a technology role
+            where I can contribute, solve problems and continue
+            improving my technical skills.
+          </p>
+
+          <div class="about-facts">
+            <div>
+              <strong>2026</strong>
+              <span>Graduation</span>
+            </div>
+
+            <div>
+              <strong>7.71</strong>
+              <span>CGPA</span>
+            </div>
+
+            <div>
+              <strong>Pune</strong>
+              <span>Location</span>
+            </div>
+          </div>
+
         </div>
-    </div>
-                <div class="about-text reveal">
-                    <h3>Curious about data. Excited by AI.</h3>
-                    <p>
-                        I am a Computer Engineering graduate with a foundation
-                        in Python, SQL, statistics, data analysis and machine
-                        learning. Through academic and personal projects, I
-                        have explored data preprocessing, exploratory data
-                        analysis, visualization and predictive modelling.
-                    </p>
-                    <p>
-                        I am also building my understanding of Generative AI,
-                        Large Language Models, prompt engineering, embeddings
-                        and Retrieval-Augmented Generation (RAG).
-                    </p>
-                    <p>
-                        My goal is to contribute to meaningful technology
-                        projects while continuously improving my analytical
-                        and development skills.
-                    </p>
+      </div>
+    </section>
 
-                    <div class="about-facts">
-                        <div><strong>2026</strong><span>Graduation Year</span></div>
-                        <div><strong>7.71</strong><span>CGPA</span></div>
-                        <div><strong>Pune</strong><span>Based In</span></div>
-                    </div>
-                </div>
+    <!-- SKILLS -->
+    <section class="section skills" id="skills">
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">MY TECHNICAL STACK</p>
+        <h2>Skills &amp; <span>Technologies</span></h2>
+        <p class="section-subtitle">
+          Technologies used in projects and subjects I am learning.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="bx bx-code-alt"></i></div>
+          <h3>Programming</h3>
+          <div class="tags">
+            <span>Python</span>
+            <span>SQL</span>
+            <span>Flask</span>
+            <span>REST APIs</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="bx bx-line-chart"></i></div>
+          <h3>Data Analytics</h3>
+          <div class="tags">
+            <span>Pandas</span>
+            <span>NumPy</span>
+            <span>EDA</span>
+            <span>Statistics</span>
+            <span>Excel</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="bx bx-brain"></i></div>
+          <h3>Machine Learning</h3>
+          <div class="tags">
+            <span>Scikit-learn</span>
+            <span>Regression</span>
+            <span>Classification</span>
+            <span>Random Forest</span>
+            <span>Clustering</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="bx bx-bot"></i></div>
+          <h3>Generative AI</h3>
+          <div class="tags">
+            <span>LLMs</span>
+            <span>Prompt Engineering</span>
+            <span>Embeddings</span>
+            <span>RAG Fundamentals</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="bx bx-bar-chart"></i></div>
+          <h3>Visualization</h3>
+          <div class="tags">
+            <span>Matplotlib</span>
+            <span>Seaborn</span>
+            <span>Plotly</span>
+            <span>Power BI</span>
+            <span>Streamlit</span>
+          </div>
+        </article>
+
+        <article class="skill-card reveal">
+          <div class="skill-icon"><i class="bx bx-wrench"></i></div>
+          <h3>Developer Tools</h3>
+          <div class="tags">
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>VS Code</span>
+            <span>Jupyter</span>
+            <span>MySQL</span>
+            <span>MongoDB</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects">
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>Featured <span>Projects</span></h2>
+        <p class="section-subtitle">
+          Practical projects in Data Science, Machine Learning
+          and Generative AI.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=75"
+              alt="Agricultural fields"
+              loading="lazy"
+              decoding="async">
+            <span class="project-category">DATA SCIENCE</span>
+          </div>
+
+          <div class="project-info">
+            <p class="project-number">01 / PREDICTIVE ANALYTICS</p>
+            <h3>Agri Predictive Analytics</h3>
+            <p>
+              Exploring crop yield prediction using rainfall,
+              soil and agricultural market data, with
+              feature engineering and time-aware validation.
+            </p>
+            <div class="tags">
+              <span>Python</span>
+              <span>Pandas</span>
+              <span>Machine Learning</span>
             </div>
-        </section>
+            <p class="project-note">
+              Exploratory modelling project.
+            </p>
+            <a class="project-link"
+              href="https://github.com/Yash-0330/AGRI-PREDICTIVE-ANALYTICS"
+              target="_blank" rel="noopener noreferrer">
+              View Source Code <i class="bx bx-right-arrow-up"></i>
+            </a>
+          </div>
+        </article>
 
-        <!-- SKILLS -->
-        <section class="section skills" id="skills">
-            <div class="section-heading reveal">
-                <p class="eyebrow">WHAT I WORK WITH</p>
-                <h2>Technical <span>Toolkit</span></h2>
-                <p class="section-subtitle">Tools and technologies I use or am currently learning.</p>
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=75"
+              alt="Artificial intelligence concept"
+              loading="lazy"
+              decoding="async">
+            <span class="project-category">GENERATIVE AI</span>
+          </div>
+
+          <div class="project-info">
+            <p class="project-number">02 / AI APPLICATION</p>
+            <h3>AI Career Assistant</h3>
+            <p>
+              Streamlit application exploring LLM-based
+              resume analysis, skill-gap identification
+              and interview preparation.
+            </p>
+            <div class="tags">
+              <span>Python</span>
+              <span>Streamlit</span>
+              <span>LLM API</span>
             </div>
+            <a class="project-link"
+              href="https://github.com/Yash-0330/AI-CAREER-ASSISTANT"
+              target="_blank" rel="noopener noreferrer">
+              View Source Code <i class="bx bx-right-arrow-up"></i>
+            </a>
+          </div>
+        </article>
 
-            <div class="skills-grid">
-                <article class="skill-card reveal">
-                    <div class="skill-icon"><i class='bx bx-code-alt'></i></div>
-                    <h3>Programming & Databases</h3>
-                    <div class="tags"><span>Python</span><span>SQL</span><span>MySQL</span><span>MongoDB</span></div>
-                </article>
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=75"
+              alt="Financial data security"
+              loading="lazy"
+              decoding="async">
+            <span class="project-category">MACHINE LEARNING</span>
+          </div>
 
-                <article class="skill-card reveal">
-                    <div class="skill-icon"><i class='bx bx-line-chart'></i></div>
-                    <h3>Data Science & Analytics</h3>
-                    <div class="tags"><span>Pandas</span><span>NumPy</span><span>EDA</span><span>Statistics</span><span>Excel</span><span>Power BI</span></div>
-                </article>
-
-                <article class="skill-card reveal">
-                    <div class="skill-icon"><i class='bx bx-brain'></i></div>
-                    <h3>Machine Learning</h3>
-                    <div class="tags"><span>Scikit-learn</span><span>Regression</span><span>Classification</span><span>Random Forest</span><span>Clustering</span></div>
-                </article>
-
-                <article class="skill-card reveal">
-                    <div class="skill-icon"><i class='bx bx-bot'></i></div>
-                    <h3>Generative AI</h3>
-                    <div class="tags"><span>Prompt Engineering</span><span>LLMs</span><span>Embeddings</span><span>Vector Databases</span><span>RAG - Learning</span></div>
-                </article>
-
-                <article class="skill-card reveal">
-                    <div class="skill-icon"><i class='bx bx-palette'></i></div>
-                    <h3>Visualization</h3>
-                    <div class="tags"><span>Matplotlib</span><span>Seaborn</span><span>Power BI</span><span>Streamlit</span></div>
-                </article>
-
-                <article class="skill-card reveal">
-                    <div class="skill-icon"><i class='bx bx-wrench'></i></div>
-                    <h3>Tools & Development</h3>
-                    <div class="tags"><span>Git</span><span>GitHub</span><span>Jupyter</span><span>VS Code</span><span>Flask</span><span>REST APIs</span></div>
-                </article>
+          <div class="project-info">
+            <p class="project-number">03 / CLASSIFICATION</p>
+            <h3>Fraud Detection Analytics</h3>
+            <p>
+              A transaction-risk analytics application
+              exploring class imbalance, classification
+              models, evaluation metrics and explainability.
+            </p>
+            <div class="tags">
+              <span>Python</span>
+              <span>Scikit-learn</span>
+              <span>Streamlit</span>
             </div>
-        </section>
+            <a class="project-link"
+              href="https://github.com/Yash-0330/Fraud-Detection-Analytics"
+              target="_blank" rel="noopener noreferrer">
+              View Source Code <i class="bx bx-right-arrow-up"></i>
+            </a>
+          </div>
+        </article>
 
-        <!-- PROJECTS -->
-        <section class="section projects" id="projects">
-            <div class="section-heading reveal">
-                <p class="eyebrow">SELECTED WORK</p>
-                <h2>Projects & <span>Experiments</span></h2>
-                <p class="section-subtitle">A look at problems I've explored through data, machine learning and application development.</p>
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=75"
+              alt="Restaurant interior"
+              loading="lazy"
+              decoding="async">
+            <span class="project-category">DATA ANALYTICS</span>
+          </div>
+
+          <div class="project-info">
+            <p class="project-number">04 / PREDICTIVE MODELLING</p>
+            <h3>Zomato Rating Prediction</h3>
+            <p>
+              Restaurant-rating prediction project
+              using data preprocessing, exploratory
+              analysis and supervised machine learning.
+            </p>
+            <div class="tags">
+              <span>Python</span>
+              <span>Pandas</span>
+              <span>EDA</span>
             </div>
+            <a class="project-link"
+              href="https://github.com/Yash-0330/DSBDA-Mini-Project-Zomato-Restaurant-Rating-Prediction"
+              target="_blank" rel="noopener noreferrer">
+              View Source Code <i class="bx bx-right-arrow-up"></i>
+            </a>
+          </div>
+        </article>
 
-            <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-image">
+            <img
+              src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=800&q=75"
+              alt="People collaborating"
+              loading="lazy"
+              decoding="async">
+            <span class="project-category">WEB &amp; NLP</span>
+          </div>
 
-                <article class="project-card reveal">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85" alt="Agricultural fields" loading="lazy">
-                        <span class="project-category">DATA SCIENCE · ML</span>
-                    </div>
-                    <div class="project-info">
-                        <p class="project-number">01 / PREDICTIVE ANALYTICS</p>
-                        <h3>Agri Predictive Analytics</h3>
-                        <p>Explores district-level crop-yield prediction using agricultural, rainfall and market-related features. The planned workflow includes data quality checks, time-aware validation, feature engineering and model interpretation.</p>
-                        <div class="tags"><span>Python</span><span>Pandas</span><span>LightGBM</span><span>SHAP</span></div>
-                        <p class="project-note">Academic / hypothetical use case with synthetic data.</p>
-                        <a class="project-link" href="https://github.com/Yash-0330" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
-                    </div>
-                </article>
-
-                <article class="project-card reveal">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1000&q=85" alt="Artificial intelligence concept" loading="lazy">
-                        <span class="project-category">GENERATIVE AI</span>
-                    </div>
-                    <div class="project-info">
-                        <p class="project-number">02 / AI APPLICATION</p>
-                        <h3>AI Career Assistant</h3>
-                        <p>A Streamlit application concept designed to help job seekers review resumes, identify skill gaps and prepare for interviews using an LLM-powered workflow.</p>
-                        <div class="tags"><span>Python</span><span>Streamlit</span><span>LLM API</span><span>Prompt Engineering</span></div>
-                        <a class="project-link" href="https://github.com/Yash-0330/AI-CAREER-ASSISTANT" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
-                    </div>
-                </article>
-
-                <article class="project-card reveal">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1000&q=85" alt="Digital financial security" loading="lazy">
-                        <span class="project-category">MACHINE LEARNING</span>
-                    </div>
-                    <div class="project-info">
-                        <p class="project-number">03 / CLASSIFICATION</p>
-                        <h3>Fraud Detection Analytics</h3>
-                        <p>Investigates transaction data to identify potentially fraudulent activity. Focus areas include class imbalance, exploratory analysis, classification and model evaluation.</p>
-                        <div class="tags"><span>Python</span><span>Scikit-learn</span><span>Classification</span><span>Streamlit</span></div>
-                        <a class="project-link" href="https://github.com/Yash-0330" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
-                    </div>
-                </article>
-
-                <article class="project-card reveal">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="Restaurant interior" loading="lazy">
-                        <span class="project-category">PREDICTIVE MODELLING</span>
-                    </div>
-                    <div class="project-info">
-                        <p class="project-number">04 / RESTAURANT ANALYTICS</p>
-                        <h3>Zomato Prediction Model</h3>
-                        <p>A restaurant-focused machine learning project involving dataset preparation, exploratory data analysis and predictive modelling.</p>
-                        <div class="tags"><span>Python</span><span>Pandas</span><span>EDA</span><span>Machine Learning</span></div>
-                        <a class="project-link" href="https://github.com/Yash-0330" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
-                    </div>
-                </article>
-
-                <article class="project-card reveal">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85" alt="People collaborating" loading="lazy">
-                        <span class="project-category">NLP · WEB APPLICATION</span>
-                    </div>
-                    <div class="project-info">
-                        <p class="project-number">05 / NETWORKING PLATFORM</p>
-                        <h3>AI-Driven Alumni Connect</h3>
-                        <p>An alumni networking platform concept with profile matching and career-readiness features. The described technology stack includes Flask, MongoDB and NLP-based matching methods.</p>
-                        <div class="tags"><span>Python</span><span>Flask</span><span>NLP</span><span>MongoDB</span></div>
-                        <a class="project-link" href="https://github.com/Yash-0330/Yash-0330-Alumni-Connect-An-Automated-Platform-for-Alumni-Engagement-and-Career-Readiness" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
-                    </div>
-                </article>
-
+          <div class="project-info">
+            <p class="project-number">05 / TEAM PROJECT</p>
+            <h3>AI-Driven Alumni Connect</h3>
+            <p>
+              Alumni networking platform exploring
+              mentorship, career opportunities,
+              community interaction and AI-assisted matching.
+            </p>
+            <div class="tags">
+              <span>Flask</span>
+              <span>Python</span>
+              <span>NLP</span>
             </div>
-        </section>
+            <a class="project-link"
+              href="https://github.com/Yash-0330/Yash-0330-Alumni-Connect-An-Automated-Platform-for-Alumni-Engagement-and-Career-Readiness"
+              target="_blank" rel="noopener noreferrer">
+              View Source Code <i class="bx bx-right-arrow-up"></i>
+            </a>
+          </div>
+        </article>
 
-        <!-- EDUCATION & CERTIFICATIONS -->
-        <section class="section education" id="education">
-            <div class="section-heading reveal">
-                <p class="eyebrow">MY BACKGROUND</p>
-                <h2>Education & <span>Certifications</span></h2>
-                <p class="section-subtitle">
-                    My academic background and educational achievements.
-                </p>
-            </div>
+      </div>
+    </section>
 
-            <div class="timeline">
-                <article class="timeline-item reveal">
-                    <span class="timeline-dot"></span>
-                    <p class="timeline-date">2022 — 2026</p>
-                    <h3>B.Tech in Computer Science</h3>
-                    <p>Savitribai Phule Pune University (SPPU)</p>
-                    <span class="timeline-detail">CGPA: 7.71</span>
-                </article>
+    <!-- EXPERIENCE -->
+    <section class="section experience" id="experience">
 
-                <article class="timeline-item reveal">
-                    <span class="timeline-dot"></span>
-                    <p class="timeline-date">2022</p>
-                    <h3>Higher Secondary Certificate (HSC)</h3>
-                    <p>Jain Fattechand Junior College, Chinchwad</p>
-                    <span class="timeline-detail">Percentage: 73.00%</span>
-                </article>
+      <div class="section-heading reveal">
+        <p class="eyebrow">PROFESSIONAL JOURNEY</p>
+        <h2>Internship <span>Experience</span></h2>
+      </div>
 
-                <article class="timeline-item reveal">
-                    <span class="timeline-dot"></span>
-                    <p class="timeline-date">2020</p>
-                    <h3>Secondary School Certificate (SSC)</h3>
-                    <p>Shramajivi Secondary School, Pune</p>
-                    <span class="timeline-detail">Percentage: 89.40%</span>
-                </article>
-            </div>
+      <div class="experience-grid">
 
-            <div class="cert-grid">
-                <div class="cert-card reveal">
-                    <i class='bx bx-cloud'></i>
-                    <div><h3>Trust and Security with Google Cloud</h3><p>Google Cloud · April 2026</p></div>
-                </div>
-                <div class="cert-card reveal">
-                    <i class='bx bx-brain'></i>
-                    <div><h3>Machine Learning for Beginners</h3><p>SkillUp by Simplilearn · August 2026</p></div>
-                </div>
-                <div class="cert-card reveal">
-                    <i class='bx bx-bar-chart-alt-2'></i>
-                    <div><h3>Data Analytics Job Simulation</h3><p>Deloitte Australia · Forage · January 2025</p></div>
-                </div>
-            </div>
-        </section>
+        <article class="experience-card reveal">
+          <span class="experience-date">
+            OCT 2026 — NOV 2026
+          </span>
+          <h3>Junior Data Scientist Intern</h3>
+          <p class="experience-company">YuvaIntern</p>
+          <p>
+            Short-term internship focused on developing
+            practical understanding of data science
+            and analytical workflows.
+          </p>
+        </article>
 
-        <!-- CONTACT -->
-<!-- CONTACT -->
-<section class="section contact" id="contact">
-    <div class="section-heading reveal">
+        <article class="experience-card reveal">
+          <span class="experience-date">
+            MAR 2025 — APR 2025
+          </span>
+          <h3>Python Programming Intern</h3>
+          <p class="experience-company">CodSoft</p>
+          <p>
+            Developed Python mini-applications including
+            a calculator, to-do list, password generator
+            and Rock–Paper–Scissors game.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section education" id="education">
+
+      <div class="section-heading reveal">
+        <p class="eyebrow">ACADEMIC BACKGROUND</p>
+        <h2>My <span>Education</span></h2>
+      </div>
+
+      <div class="timeline">
+
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <p class="timeline-date">2022 — 2026</p>
+          <h3>B.E. Computer Engineering</h3>
+          <p>Ajeenkya D Y Patil School of Engineering, Pune</p>
+          <span class="timeline-detail">CGPA: 7.71</span>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <p class="timeline-date">2022</p>
+          <h3>Higher Secondary Certificate</h3>
+          <p>Jain Fattechand Junior College, Chinchwad</p>
+          <span class="timeline-detail">73.00%</span>
+        </article>
+
+        <article class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <p class="timeline-date">2020</p>
+          <h3>Secondary School Certificate</h3>
+          <p>Shramajivi Secondary School, Pune</p>
+          <span class="timeline-detail">89.40%</span>
+        </article>
+
+      </div>
+
+      <div class="section-heading reveal">
+        <h2>Certifications <span>&amp; Learning</span></h2>
+      </div>
+
+      <div class="cert-grid">
+
+        <div class="cert-card reveal">
+          <i class="bx bx-cloud"></i>
+          <div>
+            <h3>Trust and Security with Google Cloud</h3>
+            <p>Google Cloud</p>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <i class="bx bx-brain"></i>
+          <div>
+            <h3>Machine Learning for Beginners</h3>
+            <p>Simplilearn SkillUp</p>
+          </div>
+        </div>
+
+        <div class="cert-card reveal">
+          <i class="bx bx-bar-chart-alt-2"></i>
+          <div>
+            <h3>Data Analytics Job Simulation</h3>
+            <p>Deloitte Australia · Forage</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+
+      <div class="section-heading reveal">
         <p class="eyebrow">LET'S CONNECT</p>
-        <h2>Have an opportunity? <span>Let's talk.</span></h2>
-        <p class="section-subtitle">I'm interested in fresher and entry-level opportunities across Data, AI and technology.</p>
-    </div>
 
-    <!-- Click to Copy Button -->
-    <button on="ClickEmail()" class="btn primary-btn" style="cursor: pointer; border: none;">
-        Click my email <i class='bx bx-copy'></i>
-    </button>
-    
-    <p id="copy-feedback" style="color: var(--cyan); font-size: 12px; margin-top: 8px; opacity: 0; transition: opacity 0.3s;">Email copied to clipboard!</p>
+        <h2>
+          Have an Opportunity?
+          <span>Let's Talk.</span>
+        </h2>
 
-    <div class="contact-links">
-        <a href="mailto:yashrakhunde5@gmail.com"><i class='bx bx-envelope'></i> yashrakhunde5@gmail.com</a>
-        <a href="https://www.linkedin.com/in/yashrakhunde" target="_blank" rel="noopener noreferrer"><i class='bx bxl-linkedin'></i> LinkedIn</a>
-        <a href="https://github.com/Yash-0330" target="_blank" rel="noopener noreferrer"><i class='bx bxl-github'></i> GitHub</a>
-    </div>
-</section>
+        <p class="section-subtitle">
+          I'm interested in entry-level opportunities
+          across Data Science, Analytics, AI and technology.
+        </p>
+      </div>
 
-    </main>
+      <div class="contact-actions">
+        <a
+          href="mailto:yashrakhunde5@gmail.com"
+          class="btn primary-btn">
+          Send Email
+          <i class="bx bx-envelope"></i>
+        </a>
 
-    <footer>
-        <a href="#home" class="footer-logo">YR<span>.</span></a>
-        <p>Designed & built by Yash Dnyaneshwar Rakhunde · 2026</p>
-        <a href="#home" class="back-top" aria-label="Back to top"><i class='bx bx-up-arrow-alt'></i></a>
-    </footer>
+        <button
+          id="copy-email"
+          type="button"
+          class="btn secondary-btn">
+          <i class="bx bx-copy"></i>
+          Copy Email
+        </button>
+      </div>
 
-    
-    <script type="module" src="./main.js"></script>
-</body>    
+      <p id="copy-feedback" role="status" aria-live="polite"></p>
+
+      <div class="contact-links">
+        <a href="mailto:yashrakhunde5@gmail.com">
+          <i class="bx bx-envelope"></i>
+          yashrakhunde5@gmail.com
+        </a>
+
+        <a href="https://www.linkedin.com/in/yashrakhunde"
+           target="_blank" rel="noopener noreferrer">
+          <i class="bx bxl-linkedin"></i> LinkedIn
+        </a>
+
+        <a href="https://github.com/Yash-0330"
+           target="_blank" rel="noopener noreferrer">
+          <i class="bx bxl-github"></i> GitHub
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <a href="#home" class="footer-logo">
+      YR<span>.</span>
+    </a>
+
+    <p>
+      Designed &amp; Built by Yash Rakhunde · 2026
+    </p>
+
+    <a href="#home" class="back-top" aria-label="Back to top">
+      <i class="bx bx-up-arrow-alt"></i>
+    </a>
+
+  </footer>
+
+</body>
 </html>

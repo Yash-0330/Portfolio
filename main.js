@@ -1,432 +1,859 @@
-/* =========================================
-   YASH D RAKHUNDE - PORTFOLIO JAVASCRIPT
-========================================= */
 
+/* ==========================================
+   YASH RAKHUNDE — PORTFOLIO JAVASCRIPT
 
-/* =========================================
-   1. TYPED TEXT ANIMATION
-========================================= */
+   Features:
+   - Typed.js animation
+   - Accessible mobile navigation
+   - Scroll reveal animations
+   - Active navigation highlighting
+   - Optimized Three.js 3D animation
+   - Mouse interaction
+   - Responsive 3D canvas
+   - Email copy functionality
+   - Automatic footer year
+========================================== */
 
-if (window.Typed && document.querySelector(".typed-text")) {
-    new Typed(".typed-text", {
-        strings: [
-            "Data Science.",
-            "Machine Learning.",
-            "Artificial Intelligence.",
-            "Generative AI.",
-            "Python & SQL."
-        ],
-        typeSpeed: 65,
-        backSpeed: 35,
-        backDelay: 1400,
-        loop: true,
-        smartBackspace: true
-    });
-} else {
-    const typedElement = document.querySelector(".typed-text");
+(() => {
+  "use strict";
 
-    if (typedElement) {
-        typedElement.textContent = "Data Science.";
+  // Enables progressive-enhancement CSS.
+  document.documentElement.classList.add("js");
+
+  const $ = (selector) => document.querySelector(selector);
+
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  /* ==========================================
+     1. TYPED TEXT ANIMATION
+  ========================================== */
+
+  function initializeTypedText() {
+    const element = $(".typed-text");
+
+    if (!element) return;
+
+    const phrases = [
+      "Data Science.",
+      "Machine Learning.",
+      "Artificial Intelligence.",
+      "Generative AI.",
+      "Python & SQL."
+    ];
+
+    // Fallback when Typed.js is unavailable.
+    element.textContent = phrases[0];
+
+    if (
+      typeof window.Typed !== "function" ||
+      prefersReducedMotion.matches
+    ) {
+      return;
     }
-}
 
+    new window.Typed(".typed-text", {
+      strings: phrases,
+      typeSpeed: 65,
+      backSpeed: 35,
+      backDelay: 1500,
+      startDelay: 300,
+      smartBackspace: true,
+      loop: true,
+      showCursor: true,
+      cursorChar: "|"
+    });
+  }
 
-/* =========================================
-   2. MOBILE NAVIGATION
-========================================= */
+  /* ==========================================
+     2. MOBILE NAVIGATION
+  ========================================== */
 
-const menuToggle = document.getElementById("menu-toggle");
-const navbar = document.getElementById("navbar");
+  function initializeNavigation() {
+    const menuToggle = $("#menu-toggle");
+    const navbar = $("#navbar");
 
-if (menuToggle && navbar) {
+    if (!menuToggle || !navbar) return;
+
+    function setMenu(open) {
+      navbar.classList.toggle("open", open);
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(open)
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        open ? "Close navigation" : "Open navigation"
+      );
+
+      const icon = menuToggle.querySelector("i");
+
+      if (icon) {
+        icon.className = open
+          ? "bx bx-x"
+          : "bx bx-menu";
+      }
+    }
+
     menuToggle.addEventListener("click", () => {
-        const isOpen = navbar.classList.toggle("open");
-
-        menuToggle.setAttribute("aria-expanded", String(isOpen));
-        menuToggle.setAttribute(
-            "aria-label",
-            isOpen ? "Close navigation" : "Open navigation"
-        );
-
-        menuToggle.innerHTML = isOpen
-            ? '<i class="bx bx-x"></i>'
-            : '<i class="bx bx-menu"></i>';
+      setMenu(!navbar.classList.contains("open"));
     });
 
-    navbar.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-            navbar.classList.remove("open");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Open navigation");
-            menuToggle.innerHTML = '<i class="bx bx-menu"></i>';
-        });
+    navbar.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        setMenu(false);
+      });
     });
-}
 
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        setMenu(false);
+      }
+    });
 
-/* =========================================
-   3. SCROLL REVEAL ANIMATION
-========================================= */
+    document.addEventListener("pointerdown", (event) => {
+      if (
+        !navbar.contains(event.target) &&
+        !menuToggle.contains(event.target)
+      ) {
+        setMenu(false);
+      }
+    });
 
-const revealElements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    observer.unobserve(entry.target);
-                }
-            });
-        },
-        {
-            threshold: 0.12
+    window.addEventListener(
+      "resize",
+      () => {
+        if (window.innerWidth > 760) {
+          setMenu(false);
         }
+      },
+      { passive: true }
+    );
+  }
+
+  /* ==========================================
+     3. SCROLL REVEAL ANIMATIONS
+  ========================================== */
+
+  function initializeScrollReveal() {
+    const elements = document.querySelectorAll(".reveal");
+
+    if (
+      prefersReducedMotion.matches ||
+      !("IntersectionObserver" in window)
+    ) {
+      elements.forEach((element) => {
+        element.classList.add("visible");
+      });
+
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("visible");
+
+          currentObserver.unobserve(entry.target);
+        });
+      },
+      {
+        rootMargin: "0px 0px -25px 0px",
+        threshold: 0.08
+      }
     );
 
-    revealElements.forEach(element => {
-        revealObserver.observe(element);
+    elements.forEach((element) => {
+      observer.observe(element);
     });
-} else {
-    revealElements.forEach(element => {
-        element.classList.add("visible");
-    });
-}
+  }
 
+  /* ==========================================
+     4. ACTIVE NAVIGATION ON SCROLL
+  ========================================== */
 
-/* =========================================
-   4. ACTIVE NAVIGATION ON SCROLL
-========================================= */
+  function initializeScrollNavigation() {
+    const sections = [
+      ...document.querySelectorAll("main section[id]")
+    ];
 
-const pageSections = document.querySelectorAll("main section[id]");
-const navLinks = document.querySelectorAll(".navbar a");
+    const links = [
+      ...document.querySelectorAll(
+        ".navbar a[href^='#']"
+      )
+    ];
 
-function updateActiveNavigation() {
-    let currentSection = "home";
+    let framePending = false;
 
-    pageSections.forEach(section => {
-        const sectionTop = section.offsetTop - 150;
+    function updateNavigation() {
+      let currentSection = "home";
 
-        if (window.scrollY >= sectionTop) {
-            currentSection = section.id;
+      const currentPosition = window.scrollY + 160;
+
+      sections.forEach((section) => {
+        if (section.offsetTop <= currentPosition) {
+          currentSection = section.id;
         }
-    });
+      });
 
-    navLinks.forEach(link => {
-        link.classList.toggle(
-            "active",
-            link.getAttribute("href") === `#${currentSection}`
-        );
-    });
-}
+      links.forEach((link) => {
+        const isActive =
+          link.getAttribute("href") ===
+          `#${currentSection}`;
 
-window.addEventListener("scroll", updateActiveNavigation, {
-    passive: true
-});
+        link.classList.toggle("active", isActive);
 
-updateActiveNavigation();
+        if (isActive) {
+          link.setAttribute(
+            "aria-current",
+            "location"
+          );
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
 
+      framePending = false;
+    }
 
-/* =========================================
-   5. THREE.JS ANIMATED 3D VISUAL
-========================================= */
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (framePending) return;
 
-async function createThreeAnimation() {
-    const container = document.getElementById("three-container");
-    const visual = document.querySelector(".hero-visual");
+        framePending = true;
+
+        requestAnimationFrame(updateNavigation);
+      },
+      { passive: true }
+    );
+
+    updateNavigation();
+  }
+
+  /* ==========================================
+     5. OPTIMIZED THREE.JS ANIMATION
+  ========================================== */
+
+  async function initializeThreeAnimation() {
+    const container = $("#three-container");
+    const visual = $(".hero-visual");
 
     if (!container || !visual) return;
 
+    function showFallback() {
+      visual.classList.add("fallback-visual");
+    }
+
+    // Respect accessibility and battery preferences.
+    if (prefersReducedMotion.matches) {
+      showFallback();
+      return;
+    }
+
+    let renderer = null;
+    let scene = null;
+
+    const disposableResources = [];
+
     try {
-        const THREE = await import(
-            "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
-        );
+      const THREE = await import(
+        "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js"
+      );
 
-        const scene = new THREE.Scene();
+      if (!container.isConnected) return;
 
-        const camera = new THREE.PerspectiveCamera(
-            45,
-            container.clientWidth / container.clientHeight,
-            0.1,
-            100
-        );
+      const width = Math.max(
+        container.clientWidth,
+        1
+      );
 
-        camera.position.z = 7;
+      const height = Math.max(
+        container.clientHeight,
+        1
+      );
 
-        const renderer = new THREE.WebGLRenderer({
-            alpha: true,
-            antialias: true
+      /* Scene */
+
+      scene = new THREE.Scene();
+
+      const camera = new THREE.PerspectiveCamera(
+        45,
+        width / height,
+        0.1,
+        100
+      );
+
+      camera.position.z = 7;
+
+      /* Renderer */
+
+      renderer = new THREE.WebGLRenderer({
+        alpha: true,
+        antialias: true,
+        powerPreference: "low-power"
+      });
+
+      renderer.setPixelRatio(
+        Math.min(window.devicePixelRatio || 1, 1.5)
+      );
+
+      renderer.setSize(width, height);
+
+      renderer.setClearColor(0x000000, 0);
+
+      renderer.domElement.setAttribute(
+        "aria-hidden",
+        "true"
+      );
+
+      container.appendChild(renderer.domElement);
+
+      /* ======================================
+         MAIN ICOSAHEDRON
+      ====================================== */
+
+      const mainGeometry =
+        new THREE.IcosahedronGeometry(1.65, 2);
+
+      const mainMaterial =
+        new THREE.MeshBasicMaterial({
+          color: 0x52e5ff,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.9
         });
 
-        renderer.setPixelRatio(
-            Math.min(window.devicePixelRatio, 2)
-        );
+      const mainObject = new THREE.Mesh(
+        mainGeometry,
+        mainMaterial
+      );
 
-        renderer.setSize(
-            container.clientWidth,
-            container.clientHeight
-        );
+      scene.add(mainObject);
 
-        renderer.setClearColor(0x000000, 0);
+      disposableResources.push(
+        mainGeometry,
+        mainMaterial
+      );
 
-        container.appendChild(renderer.domElement);
+      /* ======================================
+         INNER ICOSAHEDRON
+      ====================================== */
 
+      const innerGeometry =
+        new THREE.IcosahedronGeometry(1.15, 1);
 
-        // Main glowing geometry
-        const geometry = new THREE.IcosahedronGeometry(1.65, 2);
-
-        const material = new THREE.MeshStandardMaterial({
-            color: 0x52e5ff,
-            metalness: 0.65,
-            roughness: 0.25,
-            wireframe: true
+      const innerMaterial =
+        new THREE.MeshBasicMaterial({
+          color: 0xa78bfa,
+          wireframe: true,
+          transparent: true,
+          opacity: 0.75
         });
 
-        const mainObject = new THREE.Mesh(geometry, material);
-        scene.add(mainObject);
+      const innerObject = new THREE.Mesh(
+        innerGeometry,
+        innerMaterial
+      );
 
+      scene.add(innerObject);
 
-        // Inner object
-        const innerGeometry = new THREE.IcosahedronGeometry(1.15, 1);
+      disposableResources.push(
+        innerGeometry,
+        innerMaterial
+      );
 
-        const innerMaterial = new THREE.MeshStandardMaterial({
-            color: 0xa78bfa,
-            metalness: 0.8,
-            roughness: 0.3,
-            wireframe: true
+      /* ======================================
+         ORBIT RINGS
+      ====================================== */
+
+      const ringGeometryOne =
+        new THREE.TorusGeometry(
+          2.15,
+          0.012,
+          8,
+          96
+        );
+
+      const ringMaterialOne =
+        new THREE.MeshBasicMaterial({
+          color: 0x52e5ff,
+          transparent: true,
+          opacity: 0.55
         });
 
-        const innerObject = new THREE.Mesh(
-            innerGeometry,
-            innerMaterial
+      const ringOne = new THREE.Mesh(
+        ringGeometryOne,
+        ringMaterialOne
+      );
+
+      ringOne.rotation.set(1.15, 0.3, 0);
+
+      scene.add(ringOne);
+
+      const ringGeometryTwo =
+        new THREE.TorusGeometry(
+          2.35,
+          0.009,
+          8,
+          96
         );
 
-        scene.add(innerObject);
-
-
-        // Orbit rings
-        const ringMaterial = new THREE.MeshBasicMaterial({
-            color: 0x52e5ff,
-            transparent: true,
-            opacity: 0.55
+      const ringMaterialTwo =
+        new THREE.MeshBasicMaterial({
+          color: 0xa78bfa,
+          transparent: true,
+          opacity: 0.45
         });
 
-        const ringOne = new THREE.Mesh(
-            new THREE.TorusGeometry(2.15, 0.012, 12, 120),
-            ringMaterial
+      const ringTwo = new THREE.Mesh(
+        ringGeometryTwo,
+        ringMaterialTwo
+      );
+
+      ringTwo.rotation.set(0.5, 1.1, 0);
+
+      scene.add(ringTwo);
+
+      disposableResources.push(
+        ringGeometryOne,
+        ringMaterialOne,
+        ringGeometryTwo,
+        ringMaterialTwo
+      );
+
+      /* ======================================
+         FLOATING PARTICLES
+      ====================================== */
+
+      // Fewer particles for better performance.
+      const particleCount = 160;
+
+      const positions = new Float32Array(
+        particleCount * 3
+      );
+
+      for (let i = 0; i < particleCount; i++) {
+        const index = i * 3;
+
+        positions[index] =
+          (Math.random() - 0.5) * 9;
+
+        positions[index + 1] =
+          (Math.random() - 0.5) * 9;
+
+        positions[index + 2] =
+          (Math.random() - 0.5) * 5;
+      }
+
+      const particleGeometry =
+        new THREE.BufferGeometry();
+
+      particleGeometry.setAttribute(
+        "position",
+        new THREE.BufferAttribute(
+          positions,
+          3
+        )
+      );
+
+      const particleMaterial =
+        new THREE.PointsMaterial({
+          color: 0x52e5ff,
+          size: 0.025,
+          transparent: true,
+          opacity: 0.7,
+          sizeAttenuation: true
+        });
+
+      const particles = new THREE.Points(
+        particleGeometry,
+        particleMaterial
+      );
+
+      scene.add(particles);
+
+      disposableResources.push(
+        particleGeometry,
+        particleMaterial
+      );
+
+      /* ======================================
+         INTERACTIVE MOUSE MOVEMENT
+      ====================================== */
+
+      let targetRotationX = 0;
+      let targetRotationY = 0;
+
+      let mouseRotationX = 0;
+      let mouseRotationY = 0;
+
+      container.addEventListener(
+        "pointermove",
+        (event) => {
+          if (event.pointerType === "touch") {
+            return;
+          }
+
+          const rect =
+            container.getBoundingClientRect();
+
+          if (!rect.width || !rect.height) return;
+
+          const x =
+            (event.clientX - rect.left) /
+            rect.width;
+
+          const y =
+            (event.clientY - rect.top) /
+            rect.height;
+
+          targetRotationY = (x - 0.5) * 0.5;
+          targetRotationX = (y - 0.5) * 0.5;
+        },
+        { passive: true }
+      );
+
+      container.addEventListener(
+        "pointerleave",
+        () => {
+          targetRotationX = 0;
+          targetRotationY = 0;
+        }
+      );
+
+      /* ======================================
+         ANIMATION CONTROLS
+      ====================================== */
+
+      let isVisible = false;
+      let isDisposed = false;
+
+      let animationFrame = null;
+      let lastFrameTime = 0;
+      let elapsedTime = 0;
+
+      // Target approximately 30 FPS.
+      const frameInterval = 1000 / 30;
+
+      function shouldAnimate() {
+        return (
+          !isDisposed &&
+          isVisible &&
+          !document.hidden &&
+          !prefersReducedMotion.matches
         );
+      }
 
-        ringOne.rotation.x = 1.15;
-        ringOne.rotation.y = 0.3;
-        scene.add(ringOne);
-
-        const ringTwo = new THREE.Mesh(
-            new THREE.TorusGeometry(2.35, 0.009, 12, 120),
-            new THREE.MeshBasicMaterial({
-                color: 0xa78bfa,
-                transparent: true,
-                opacity: 0.45
-            })
-        );
-
-        ringTwo.rotation.x = 0.5;
-        ringTwo.rotation.y = 1.1;
-        scene.add(ringTwo);
-
-
-        // Lighting
-        const ambientLight = new THREE.AmbientLight(
-            0xffffff,
-            1.2
-        );
-
-        scene.add(ambientLight);
-
-        const cyanLight = new THREE.PointLight(
-            0x52e5ff,
-            35,
-            15
-        );
-
-        cyanLight.position.set(3, 3, 4);
-        scene.add(cyanLight);
-
-        const purpleLight = new THREE.PointLight(
-            0xa78bfa,
-            30,
-            15
-        );
-
-        purpleLight.position.set(-3, -2, 3);
-        scene.add(purpleLight);
-
-
-        // Floating particles
-        const particleCount = 350;
-        const particlePositions = new Float32Array(
-            particleCount * 3
-        );
-
-        for (let i = 0; i < particleCount; i++) {
-            const index = i * 3;
-
-            particlePositions[index] = (Math.random() - 0.5) * 9;
-            particlePositions[index + 1] = (Math.random() - 0.5) * 9;
-            particlePositions[index + 2] = (Math.random() - 0.5) * 5;
+      function stopAnimation() {
+        if (animationFrame !== null) {
+          cancelAnimationFrame(animationFrame);
+          animationFrame = null;
         }
 
-        const particleGeometry = new THREE.BufferGeometry();
+        lastFrameTime = 0;
+      }
 
-        particleGeometry.setAttribute(
-            "position",
-            new THREE.BufferAttribute(particlePositions, 3)
-        );
+      function animate(time) {
+        animationFrame = null;
 
-        const particleMaterial = new THREE.PointsMaterial({
-            color: 0x52e5ff,
-            size: 0.025,
-            transparent: true,
-            opacity: 0.8
-        });
+        if (!shouldAnimate()) {
+          return;
+        }
 
-        const particles = new THREE.Points(
-            particleGeometry,
-            particleMaterial
-        );
+        if (
+          lastFrameTime === 0 ||
+          time - lastFrameTime >= frameInterval
+        ) {
+          const delta = lastFrameTime
+            ? Math.min(
+                (time - lastFrameTime) / 1000,
+                0.05
+              )
+            : 0;
 
-        scene.add(particles);
+          lastFrameTime = time;
+          elapsedTime += delta;
 
+          // Smooth automatic rotation.
+          mainObject.rotation.x =
+            elapsedTime * 0.12 + mouseRotationX;
 
-        // Mouse interaction
-        let targetRotationX = 0;
-        let targetRotationY = 0;
+          mainObject.rotation.y =
+            elapsedTime * 0.18 + mouseRotationY;
 
-        container.addEventListener("pointermove", event => {
-            const rect = container.getBoundingClientRect();
+          innerObject.rotation.x =
+            -elapsedTime * 0.15;
 
-            const x = (event.clientX - rect.left) / rect.width;
-            const y = (event.clientY - rect.top) / rect.height;
+          innerObject.rotation.y =
+            -elapsedTime * 0.12;
 
-            targetRotationY = (x - 0.5) * 0.7;
-            targetRotationX = (y - 0.5) * 0.7;
-        });
+          ringOne.rotation.z =
+            elapsedTime * 0.09;
 
+          ringTwo.rotation.z =
+            -elapsedTime * 0.06;
 
-        // Animation loop control with IntersectionObserver
-        let animationFrame;
-        let isVisible = true;
+          particles.rotation.y =
+            elapsedTime * 0.025;
 
-        const visibilityObserver = new IntersectionObserver(entries => {
-            isVisible = entries[0].isIntersecting;
+          // Smooth mouse interpolation.
+          mouseRotationX +=
+            (targetRotationX - mouseRotationX) * 0.06;
 
-            if (isVisible) {
-                animate();
-            } else {
-                cancelAnimationFrame(animationFrame);
+          mouseRotationY +=
+            (targetRotationY - mouseRotationY) * 0.06;
+
+          renderer.render(scene, camera);
+        }
+
+        animationFrame =
+          requestAnimationFrame(animate);
+      }
+
+      function startAnimation() {
+        if (
+          animationFrame !== null ||
+          !shouldAnimate()
+        ) {
+          return;
+        }
+
+        lastFrameTime = 0;
+
+        animationFrame =
+          requestAnimationFrame(animate);
+      }
+
+      /* ======================================
+         PAUSE WHEN OFF-SCREEN
+      ====================================== */
+
+      let visibilityObserver = null;
+
+      if ("IntersectionObserver" in window) {
+        visibilityObserver =
+          new IntersectionObserver(
+            (entries) => {
+              isVisible =
+                entries[0]?.isIntersecting ??
+                false;
+
+              if (isVisible) {
+                startAnimation();
+              } else {
+                stopAnimation();
+              }
+            },
+            {
+              threshold: 0.05
             }
-        });
+          );
 
         visibilityObserver.observe(container);
+      } else {
+        isVisible = true;
+        startAnimation();
+      }
 
-        function animate() {
-            if (!isVisible) return;
+      /* ======================================
+         RESPONSIVE RESIZING
+      ====================================== */
 
-            animationFrame = requestAnimationFrame(animate);
+      let resizeObserver = null;
 
-            mainObject.rotation.x += 0.002;
-            mainObject.rotation.y += 0.003;
+      function resizeCanvas() {
+        if (isDisposed) return;
 
-            innerObject.rotation.x -= 0.003;
-            innerObject.rotation.y -= 0.002;
+        const newWidth = container.clientWidth;
+        const newHeight = container.clientHeight;
 
-            ringOne.rotation.z += 0.0015;
-            ringTwo.rotation.z -= 0.001;
+        if (!newWidth || !newHeight) return;
 
-            particles.rotation.y += 0.0004;
+        camera.aspect = newWidth / newHeight;
+        camera.updateProjectionMatrix();
 
-            mainObject.rotation.x +=
-                (targetRotationX - mainObject.rotation.x) * 0.015;
+        renderer.setSize(newWidth, newHeight);
+      }
 
-            mainObject.rotation.y +=
-                (targetRotationY - mainObject.rotation.y) * 0.015;
-
-            renderer.render(scene, camera);
-        }
-
-        animate();
-
-
-        // Responsive container resizing
-        const resizeObserver = new ResizeObserver(() => {
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-
-            if (!width || !height) return;
-
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
-
-            renderer.setSize(width, height);
-        });
+      if ("ResizeObserver" in window) {
+        resizeObserver =
+          new ResizeObserver(resizeCanvas);
 
         resizeObserver.observe(container);
+      } else {
+        window.addEventListener(
+          "resize",
+          resizeCanvas,
+          { passive: true }
+        );
+      }
 
+      /* ======================================
+         BROWSER TAB VISIBILITY
+      ====================================== */
 
-        // Pause performance when browser tab is hidden
-        document.addEventListener("visibilitychange", () => {
-            if (document.hidden) {
-                cancelAnimationFrame(animationFrame);
-            } else if (isVisible) {
-                animate();
-            }
-        });
+      function handleVisibilityChange() {
+        if (document.hidden) {
+          stopAnimation();
+        } else {
+          startAnimation();
+        }
+      }
 
-    } catch (error) {
-        console.warn(
-            "Three.js could not load. Showing CSS fallback visual.",
-            error
+      document.addEventListener(
+        "visibilitychange",
+        handleVisibilityChange
+      );
+
+      function handleMotionChange() {
+        if (prefersReducedMotion.matches) {
+          stopAnimation();
+        } else {
+          startAnimation();
+        }
+      }
+
+      if (prefersReducedMotion.addEventListener) {
+        prefersReducedMotion.addEventListener(
+          "change",
+          handleMotionChange
+        );
+      }
+
+      /* ======================================
+         RELEASE GPU RESOURCES
+      ====================================== */
+
+      function cleanup() {
+        if (isDisposed) return;
+
+        isDisposed = true;
+
+        stopAnimation();
+
+        visibilityObserver?.disconnect();
+        resizeObserver?.disconnect();
+
+        document.removeEventListener(
+          "visibilitychange",
+          handleVisibilityChange
         );
 
-        visual.classList.add("fallback-visual");
-    }
-}
+        disposableResources.forEach(
+          (resource) => resource.dispose()
+        );
 
-window.copyEmail = async function () {
-    try {
-        await navigator.clipboard.writeText("yashrakhunde5@gmail.com");
+        renderer.dispose();
+      }
 
-        const feedback = document.getElementById("copy-feedback");
+      window.addEventListener(
+        "pagehide",
+        cleanup,
+        { once: true }
+      );
 
-        if (feedback) {
-            feedback.textContent = "Email copied!";
-            feedback.style.opacity = "1";
-
-            setTimeout(() => {
-                feedback.style.opacity = "0";
-            }, 2500);
-        }
     } catch (error) {
-        console.error("Failed to copy email:", error);
+      console.warn(
+        "3D animation unavailable:",
+        error
+      );
+
+      if (renderer) {
+        renderer.dispose();
+        renderer.domElement?.remove();
+      }
+
+      showFallback();
     }
-};
+  }
 
+  /* ==========================================
+     6. COPY EMAIL
+  ========================================== */
 
-/* =========================================
-   6. START 3D ANIMATION
-========================================= */
+  function initializeEmailCopy() {
+    const button = $("#copy-email");
+    const feedback = $("#copy-feedback");
 
-createThreeAnimation();
+    if (!button) return;
 
+    const email = "yashrakhunde5@gmail.com";
 
-/* =========================================
-   7. CURRENT YEAR IN FOOTER
-========================================= */
+    button.addEventListener(
+      "click",
+      async () => {
+        try {
+          if (!navigator.clipboard?.writeText) {
+            throw new Error("Clipboard unavailable");
+          }
 
-const footerText = document.querySelector(".footer p") || document.querySelector("footer p");
+          await navigator.clipboard.writeText(email);
 
-if (footerText) {
-    footerText.textContent =
-        `Designed & built by Yash Dnyaneshwar Rakhunde · ${new Date().getFullYear()}`;
-}
+          if (feedback) {
+            feedback.textContent =
+              "Email address copied successfully!";
+          }
 
+          button.innerHTML = `
+            <i class="bx bx-check"></i>
+            Copied!
+          `;
+
+        } catch (error) {
+          if (feedback) {
+            feedback.textContent =
+              "Unable to copy automatically. Please use the email link.";
+          }
+        }
+      }
+    );
+  }
+
+  /* ==========================================
+     7. AUTOMATIC FOOTER YEAR
+  ========================================== */
+
+  function initializeFooter() {
+    const footer = document.querySelector(
+      "footer p"
+    );
+
+    if (!footer) return;
+
+    footer.textContent =
+      `Designed & Built by Yash Rakhunde · ${new Date().getFullYear()}`;
+  }
+
+  /* ==========================================
+     8. INITIALIZE WEBSITE
+  ========================================== */
+
+  function initializePortfolio() {
+    initializeTypedText();
+    initializeNavigation();
+    initializeScrollReveal();
+    initializeScrollNavigation();
+    initializeEmailCopy();
+    initializeFooter();
+
+    // Load the Three.js visual after essential UI is ready.
+    initializeThreeAnimation();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      initializePortfolio,
+      { once: true }
+    );
+  } else {
+    initializePortfolio();
+  }
+
+})();
