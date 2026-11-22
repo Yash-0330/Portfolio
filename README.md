@@ -1,74 +1,43 @@
-# 👨‍💻 Yash Dnyaneshwar Rakhunde | Personal Portfolio
+# Yash Rakhunde — Data Science & AI Portfolio
 
-Welcome to my personal portfolio repository! This website showcases my technical skills, projects, education, certifications, and journey as a Computer Engineering graduate interested in Data Science, Artificial Intelligence, Machine Learning, and Generative AI.
+A responsive, accessible, lightweight portfolio showcasing my background in Computer Engineering, hands-on Python work, and selected projects in data analytics, machine learning and Generative AI.
 
-## 🌐 Live Portfolio
+**Live website:** https://yash-0330.github.io/Portfolio/
 
-**[Visit My Portfolio](https://yash-0330.github.io/Portfolio/)**
+## Highlights
 
-## 👨‍🎓 About Me
+- Premium, responsive single-page design built with HTML, CSS and vanilla JavaScript
+- Semantic page sections for About, Skills, Projects, Experience, Education and Contact
+- Project links directly to the respective GitHub repositories
+- Accessible mobile navigation, keyboard focus states and skip link
+- Copy-email action with clear feedback and a working mailto fallback
+- Lightweight CSS-only visuals rather than GPU-intensive WebGL or stock-image downloads
+- Scroll reveals that respect reduced-motion settings
+- Search metadata, social sharing tags and canonical URL
 
-I'm **Yash Dnyaneshwar Rakhunde**, a Computer Engineering graduate from Pune, Maharashtra, India.
+## Preview locally
 
-I am passionate about using technology and data to solve real-world problems. I enjoy exploring Python programming, data analytics, machine learning, AI applications, and Generative AI technologies.
+Open `index.html` in your browser, or run a simple local server from the repository directory:
 
-Currently, I am strengthening my knowledge of:
-- Data Science and Machine Learning
-- Generative AI and Large Language Models (LLMs)
-- Prompt Engineering and Retrieval-Augmented Generation (RAG)
-- Data Analytics and Visualization
+```bash
+python -m http.server 8000
+```
 
-## 🛠️ Technical Skills
+Then visit http://localhost:8000.
 
-| Category | Technologies |
-|---|---|
-| Programming | Python, SQL |
-| Data Science | Pandas, NumPy, Scikit-learn |
-| Visualization | Matplotlib, Seaborn, Power BI |
-| Machine Learning | Regression, Classification, Clustering |
-| Generative AI | LLMs, Prompt Engineering, RAG Fundamentals |
-| Database | MySQL, MongoDB |
-| Tools | Git, GitHub, VS Code, Jupyter Notebook |
-| Web Development | HTML, CSS, JavaScript, Flask |
+## Customize
 
-## 🚀 Featured Projects
+- **Content / links:** `index.html`
+- **Design / responsive styles:** `stylesheet.css`
+- **Menu, scroll states, copy email:** `main.js`
+- **Profile picture:** `images/`
 
-### 1. AI Career Assistant
-An AI-powered career assistance application designed to help users analyze resumes, identify skill gaps, and prepare for interviews.
+The UI intentionally avoids invented performance metrics and fake project screenshots. The hero and project art are illustrative layouts, not charts claiming actual model results. Replace them with authentic screenshots whenever available.
 
-### 2. Agri Predictive Analytics
-A data science project focused on agricultural analytics and crop yield prediction using historical agricultural data and machine learning.
+## Contact
 
-### 3. Fraud Detection & Transaction Risk Analytics
-A machine learning project focused on identifying potentially fraudulent financial transactions and analyzing transaction risk.
+- [GitHub](https://github.com/Yash-0330)
+- [LinkedIn](https://www.linkedin.com/in/yashrakhunde)
+- [Email](mailto:yashrakhunde5@gmail.com)
 
-### 4. Zomato Restaurant Prediction
-A machine learning project exploring restaurant-related data and predictive modeling.
-
-Explore my repositories: [GitHub Projects](https://github.com/Yash-0330)
-
-## 🎓 Education
-
-**B.Tech – Computer Science / Computer Engineering**  
-Savitribai Phule Pune University  
-2022 – 2026
-
-## 📜 Certifications
-
-- Trust and Security with Google Cloud
-- Machine Learning for Beginners – Simplilearn
-- Deloitte Australia – Data Analytics Job Simulation
-- ExcelR Training and Certification
-
-## 📫 Connect With Me
-
-- **LinkedIn:** [linkedin.com/in/yashrakhunde](https://linkedin.com/in/yashrakhunde)
-- **GitHub:** [github.com/Yash-0330](https://github.com/Yash-0330)
-- **LeetCode:** [leetcode.com/YashRakhunde](https://leetcode.com/YashRakhunde)
-- **Email:** yashrakhunde5@gmail.com
-
----
-
-⭐ If you find my portfolio interesting, feel free to explore my projects and connect with me!
-
-**Thanks for visiting my portfolio!**
+© 2026 Yash Rakhunde.
