@@ -3,53 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#080b18">
-    <meta name="description" content="Yash Dnyaneshwar Rakhunde - Data Science, AI/ML and Generative AI Portfolio">
+    <meta name="theme-color" content="#09131b">
+    <meta name="description" content="Explore Yash Rakhunde’s projects in data science, machine learning, fraud analytics, and Generative AI. Computer Engineering graduate based in Pune.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Yash Rakhunde | Data Science & AI Portfolio">
+    <meta property="og:description" content="Data science, machine learning and practical AI projects — built by Yash Rakhunde.">
+    <meta property="og:url" content="https://yash-0330.github.io/Portfolio/">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yash-0330.github.io/Portfolio/">
     <title>Yash Dnyaneshwar Rakhunde | AI & Data Science</title>
 
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
     <link rel="stylesheet" href="./stylesheet.css">
 
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
           rel="stylesheet">
 
-    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="header">
         <a href="#home" class="logo">YR<span>.</span></a>
 
-        <nav class="navbar">
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="navbar" aria-expanded="false" aria-label="Open navigation"><i class="bx bx-menu" aria-hidden="true"></i></button>
+        <nav class="navbar" id="navbar" aria-label="Main navigation">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
             <a href="#education">Education</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <!-- HERO -->
         <section class="hero" id="home">
             <div class="hero-content reveal">
                 <div class="availability">
                     <span class="status-dot"></span>
-                    Open to Fresher Opportunities
+                    Open to entry-level opportunities
                 </div>
 
                 <p class="eyebrow">HELLO, I'M</p>
-                <h1>Yash Dnyaneshwar<br><span>Rakhunde.</span></h1>
+                <h1>Yash<br><span>Rakhunde.</span></h1>
 
-                <h2>Building with <span class="typed-text"></span></h2>
+                <h2>Data Science <span class="hero-divider">/</span> Machine Learning <span class="hero-divider">/</span> AI</h2>
 
                 <p class="hero-description">
-                    Computer Engineering graduate interested in Data Science,
-                    Machine Learning and Artificial Intelligence. I enjoy
-                    exploring data, solving problems and developing practical
-                    technology applications.
+                    I turn complex data into understandable insights and useful applications.
+                    I’m a Computer Engineering graduate building hands-on projects in predictive
+                    analytics, machine learning and Generative AI.
                 </p>
 
+                <p class="hero-meta">Python <span>·</span> SQL <span>·</span> Analytics <span>·</span> LLM applications</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn primary-btn">Explore Projects <i class='bx bx-right-arrow-alt'></i></a>
                     <a href="mailto:yashrakhunde5@gmail.com" class="btn secondary-btn">Contact Me</a>
@@ -64,30 +73,44 @@
             </div>
 
             <div class="hero-visual reveal">
-                <div class="visual-glow"></div>
-                <div id="three-container"></div>
-
-                <div class="floating-label label-one">
-                    <i class='bx bx-brain'></i> Machine Learning
+                <div class="visual-glow" aria-hidden="true"></div>
+                <div class="insight-window" aria-label="Illustration of a data science project workflow">
+                    <div class="window-header">
+                        <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span>PROJECT WORKFLOW</span>
+                        <span class="window-index">01 / 03</span>
+                    </div>
+                    <div class="insight-body">
+                        <div class="insight-heading">
+                            <p class="insight-kicker">A PRACTICAL APPROACH</p>
+                            <h3>From raw data<br>to real insight<span>.</span></h3>
+                            <p>Good questions. Thoughtful analysis. Clear results.</p>
+                        </div>
+                        <div class="insight-steps">
+                            <div class="insight-step">
+                                <span class="step-count">01</span>
+                                <div><strong>Understand</strong><small>Explore, clean &amp; prepare data</small></div>
+                                <span class="step-mark" aria-hidden="true">↗</span>
+                            </div>
+                            <div class="insight-step">
+                                <span class="step-count">02</span>
+                                <div><strong>Build</strong><small>Train, validate &amp; compare models</small></div>
+                                <span class="step-mark" aria-hidden="true">↗</span>
+                            </div>
+                            <div class="insight-step">
+                                <span class="step-count">03</span>
+                                <div><strong>Communicate</strong><small>Explain findings with simple interfaces</small></div>
+                                <span class="step-mark" aria-hidden="true">↗</span>
+                            </div>
+                        </div>
+                        <div class="insight-footer">
+                            <span class="code-icon" aria-hidden="true">&lt;/&gt;</span>
+                            <span>PYTHON · DATA · MACHINE LEARNING</span>
+                            <span class="live-dot" aria-hidden="true"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class="floating-label label-two">
-                    <i class='bx bx-message-rounded-dots'></i> Natural Language Processing
-                </div>
-                <div class="floating-label label-three">
-                    <i class='bx bx-network-chart'></i> Deep Learning
-                </div>
-                <div class="floating-label label-four">
-                    <i class='bx bx-bot'></i> Generative AI
-                </div>
-                <div class="floating-label label-five">
-                    <i class='bx bx-chip'></i> Large Language Models
-                </div>
-                <div class="floating-label label-six">
-                    <i class='bx bxl-python'></i> python
-                </div>
-                <div class="floating-label label-seven">
-                    <i class='bx bx-data'></i> Data Science
-                </div>
+                <div class="insight-note" aria-hidden="true"><span>✦</span> Curious. Practical. Always learning.</div>
             </div>
 
             <div class="scroll-indicator">
@@ -108,6 +131,7 @@
             <img
                 src="./images/ChatGPT Image Aug 18, 2026, 12_34_12 PM.png"
                 alt="Yash Dnyaneshwar Rakhunde"
+                loading="lazy" decoding="async"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';"
             >
 
@@ -138,7 +162,7 @@
                         and Retrieval-Augmented Generation (RAG).
                     </p>
                     <p>
-                        My goal is to contribute to meaningful technology
+                        My goal is to contribute to useful technology
                         projects while continuously improving my analytical
                         and development skills.
                     </p>
@@ -157,7 +181,7 @@
             <div class="section-heading reveal">
                 <p class="eyebrow">WHAT I WORK WITH</p>
                 <h2>Technical <span>Toolkit</span></h2>
-                <p class="section-subtitle">Tools and technologies I use or am currently learning.</p>
+                <p class="section-subtitle">Core tools from my projects, plus technologies I’m actively learning.</p>
             </div>
 
             <div class="skills-grid">
@@ -211,75 +235,98 @@
 
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=85" alt="Agricultural fields" loading="lazy">
+                        <div class="project-art art-agri" aria-hidden="true"><div class="art-header"><span>AGRI / FORECASTING</span><span class="art-cross">↗</span></div><div class="art-bars"><i style="height:27%"></i><i style="height:46%"></i><i style="height:42%"></i><i style="height:61%"></i><i style="height:52%"></i><i style="height:73%"></i><i style="height:65%"></i><i style="height:85%"></i></div><div class="art-caption">Yield · rainfall · market data</div></div>
                         <span class="project-category">DATA SCIENCE · ML</span>
                     </div>
                     <div class="project-info">
                         <p class="project-number">01 / PREDICTIVE ANALYTICS</p>
                         <h3>Agri Predictive Analytics</h3>
-                        <p>Explores district-level crop-yield prediction using agricultural, rainfall and market-related features. The planned workflow includes data quality checks, time-aware validation, feature engineering and model interpretation.</p>
-                        <div class="tags"><span>Python</span><span>Pandas</span><span>LightGBM</span><span>SHAP</span></div>
-                        <p class="project-note">Academic / hypothetical use case with synthetic data.</p>
-                        <a class="project-link" href="https://github.com/Yash-0330" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
+                        <p>Explores district-level crop-yield prediction using agricultural, rainfall and market-related features. The workflow explores data quality, time-aware validation, feature engineering and model interpretation.</p>
+                        <div class="tags"><span>Python</span><span>Pandas</span><span>Model Validation</span><span>SHAP</span></div>
+                        <p class="project-note">Exploratory project; predictions are not production forecasts.</p>
+                        <a class="project-link" href="https://github.com/Yash-0330/AGRI-PREDICTIVE-ANALYTICS" target="_blank" rel="noopener noreferrer">View source code <i class='bx bx-right-arrow-up'></i></a>
                     </div>
                 </article>
 
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1000&q=85" alt="Artificial intelligence concept" loading="lazy">
+                        <div class="project-art art-ai" aria-hidden="true"><div class="art-header"><span>AI / APPLICATION</span><span class="art-cross">↗</span></div><div class="art-bars"><i style="height:36%"></i><i style="height:44%"></i><i style="height:58%"></i><i style="height:55%"></i><i style="height:68%"></i><i style="height:76%"></i><i style="height:70%"></i><i style="height:88%"></i></div><div class="art-caption">Resume · skills · interview prep</div></div>
                         <span class="project-category">GENERATIVE AI</span>
                     </div>
                     <div class="project-info">
                         <p class="project-number">02 / AI APPLICATION</p>
                         <h3>AI Career Assistant</h3>
-                        <p>A Streamlit application concept designed to help job seekers review resumes, identify skill gaps and prepare for interviews using an LLM-powered workflow.</p>
+                        <p>A Streamlit-based project exploring how LLM workflows can assist with resume analysis, skill-gap discovery and interview preparation.</p>
                         <div class="tags"><span>Python</span><span>Streamlit</span><span>LLM API</span><span>Prompt Engineering</span></div>
-                        <a class="project-link" href="https://github.com/Yash-0330/AI-CAREER-ASSISTANT" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
+                        <a class="project-link" href="https://github.com/Yash-0330/AI-CAREER-ASSISTANT" target="_blank" rel="noopener noreferrer">View source code <i class='bx bx-right-arrow-up'></i></a>
                     </div>
                 </article>
 
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1000&q=85" alt="Digital financial security" loading="lazy">
+                        <div class="project-art art-fraud" aria-hidden="true"><div class="art-header"><span>FRAUD / RISK</span><span class="art-cross">↗</span></div><div class="art-bars"><i style="height:73%"></i><i style="height:43%"></i><i style="height:61%"></i><i style="height:36%"></i><i style="height:50%"></i><i style="height:30%"></i><i style="height:42%"></i><i style="height:22%"></i></div><div class="art-caption">Class imbalance · model evaluation</div></div>
                         <span class="project-category">MACHINE LEARNING</span>
                     </div>
                     <div class="project-info">
                         <p class="project-number">03 / CLASSIFICATION</p>
                         <h3>Fraud Detection Analytics</h3>
-                        <p>Investigates transaction data to identify potentially fraudulent activity. Focus areas include class imbalance, exploratory analysis, classification and model evaluation.</p>
+                        <p>Explores transaction risk with data analysis, class-imbalance handling, classification metrics and interpretable model comparisons.</p>
                         <div class="tags"><span>Python</span><span>Scikit-learn</span><span>Classification</span><span>Streamlit</span></div>
-                        <a class="project-link" href="https://github.com/Yash-0330" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
+                        <a class="project-link" href="https://github.com/Yash-0330/Fraud-Detection-Analytics" target="_blank" rel="noopener noreferrer">View source code <i class='bx bx-right-arrow-up'></i></a>
                     </div>
                 </article>
 
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=85" alt="Restaurant interior" loading="lazy">
+                        <div class="project-art art-zomato" aria-hidden="true"><div class="art-header"><span>DATA / RESTAURANTS</span><span class="art-cross">↗</span></div><div class="art-bars"><i style="height:26%"></i><i style="height:34%"></i><i style="height:56%"></i><i style="height:66%"></i><i style="height:52%"></i><i style="height:72%"></i><i style="height:60%"></i><i style="height:83%"></i></div><div class="art-caption">Explore · visualize · predict</div></div>
                         <span class="project-category">PREDICTIVE MODELLING</span>
                     </div>
                     <div class="project-info">
                         <p class="project-number">04 / RESTAURANT ANALYTICS</p>
                         <h3>Zomato Prediction Model</h3>
-                        <p>A restaurant-focused machine learning project involving dataset preparation, exploratory data analysis and predictive modelling.</p>
+                        <p>A restaurant-rating prediction project covering dataset preparation, exploratory analysis and supervised machine learning.</p>
                         <div class="tags"><span>Python</span><span>Pandas</span><span>EDA</span><span>Machine Learning</span></div>
-                        <a class="project-link" href="https://github.com/Yash-0330" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
+                        <a class="project-link" href="https://github.com/Yash-0330/DSBDA-Mini-Project-Zomato-Restaurant-Rating-Prediction" target="_blank" rel="noopener noreferrer">View source code <i class='bx bx-right-arrow-up'></i></a>
                     </div>
                 </article>
 
                 <article class="project-card reveal">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85" alt="People collaborating" loading="lazy">
+                        <div class="project-art art-alumni" aria-hidden="true"><div class="art-header"><span>ALUMNI / NETWORK</span><span class="art-cross">↗</span></div><div class="art-bars"><i style="height:45%"></i><i style="height:64%"></i><i style="height:48%"></i><i style="height:74%"></i><i style="height:63%"></i><i style="height:85%"></i><i style="height:72%"></i><i style="height:92%"></i></div><div class="art-caption">Connect · mentor · collaborate</div></div>
                         <span class="project-category">NLP · WEB APPLICATION</span>
                     </div>
                     <div class="project-info">
                         <p class="project-number">05 / NETWORKING PLATFORM</p>
                         <h3>AI-Driven Alumni Connect</h3>
-                        <p>An alumni networking platform concept with profile matching and career-readiness features. The described technology stack includes Flask, MongoDB and NLP-based matching methods.</p>
+                        <p>A team-built alumni networking project exploring mentorship, career opportunities and profile matching with web and NLP technologies.</p>
                         <div class="tags"><span>Python</span><span>Flask</span><span>NLP</span><span>MongoDB</span></div>
-                        <a class="project-link" href="https://github.com/Yash-0330/Yash-0330-Alumni-Connect-An-Automated-Platform-for-Alumni-Engagement-and-Career-Readiness" target="_blank" rel="noopener noreferrer">Explore repository <i class='bx bx-right-arrow-up'></i></a>
+                        <a class="project-link" href="https://github.com/Yash-0330/Yash-0330-Alumni-Connect-An-Automated-Platform-for-Alumni-Engagement-and-Career-Readiness" target="_blank" rel="noopener noreferrer">View source code <i class='bx bx-right-arrow-up'></i></a>
                     </div>
                 </article>
 
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section class="section experience" id="experience">
+            <div class="section-heading reveal">
+                <p class="eyebrow">HANDS-ON LEARNING</p>
+                <h2>Experience <span>&amp; Practice</span></h2>
+                <p class="section-subtitle">Early professional exposure and practical Python work.</p>
+            </div>
+            <div class="experience-grid">
+                <article class="experience-card reveal">
+                    <div class="experience-meta"><span>OCT — NOV 2026</span><span>INTERNSHIP</span></div>
+                    <h3>Junior Data Scientist Intern</h3>
+                    <p class="experience-company">YuvaIntern</p>
+                    <p>Practical exposure to data science workflows and analytical problem-solving during a short-term internship.</p>
+                </article>
+                <article class="experience-card reveal">
+                    <div class="experience-meta"><span>MAR — APR 2025</span><span>VIRTUAL INTERNSHIP</span></div>
+                    <h3>Python Programming Intern</h3>
+                    <p class="experience-company">CodSoft</p>
+                    <p>Developed small Python applications including a task list, calculator, password generator and Rock–Paper–Scissors game.</p>
+                </article>
             </div>
         </section>
 
@@ -297,8 +344,8 @@
                 <article class="timeline-item reveal">
                     <span class="timeline-dot"></span>
                     <p class="timeline-date">2022 — 2026</p>
-                    <h3>B.Tech in Computer Science</h3>
-                    <p>Savitribai Phule Pune University (SPPU)</p>
+                    <h3>B.E. in Computer Engineering</h3>
+                    <p>Ajeenkya D Y Patil School of Engineering · SPPU</p>
                     <span class="timeline-detail">CGPA: 7.71</span>
                 </article>
 
@@ -336,7 +383,6 @@
         </section>
 
         <!-- CONTACT -->
-<!-- CONTACT -->
 <section class="section contact" id="contact">
     <div class="section-heading reveal">
         <p class="eyebrow">LET'S CONNECT</p>
@@ -344,12 +390,11 @@
         <p class="section-subtitle">I'm interested in fresher and entry-level opportunities across Data, AI and technology.</p>
     </div>
 
-    <!-- Click to Copy Button -->
-    <button on="ClickEmail()" class="btn primary-btn" style="cursor: pointer; border: none;">
-        Click my email <i class='bx bx-copy'></i>
-    </button>
-    
-    <p id="copy-feedback" style="color: var(--cyan); font-size: 12px; margin-top: 8px; opacity: 0; transition: opacity 0.3s;">Email copied to clipboard!</p>
+    <div class="contact-actions">
+        <a class="btn primary-btn" href="mailto:yashrakhunde5@gmail.com?subject=Portfolio%20Inquiry">Get in touch <i class="bx bx-right-arrow-alt" aria-hidden="true"></i></a>
+        <button id="copy-email" type="button" class="btn secondary-btn"><i class="bx bx-copy" aria-hidden="true"></i> Copy email address</button>
+    </div>
+    <p id="copy-feedback" class="copy-feedback" role="status" aria-live="polite"></p>
 
     <div class="contact-links">
         <a href="mailto:yashrakhunde5@gmail.com"><i class='bx bx-envelope'></i> yashrakhunde5@gmail.com</a>
@@ -367,6 +412,6 @@
     </footer>
 
     
-    <script type="module" src="./main.js"></script>
+    <script src="./main.js" defer></script>
 </body>    
 </html>
